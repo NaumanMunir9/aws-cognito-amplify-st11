@@ -4,7 +4,7 @@ import { AmplifyAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 
 export default function AuthStateApp() {
   const [authState, setAuthState] = useState<AuthState>();
-  const [user, setUser] = useState<object | undefined>();
+  const [user, setUser] = useState<any>();
 
   useEffect(() => {
     onAuthUIStateChange((nextAuthState, authData) => {
@@ -15,7 +15,7 @@ export default function AuthStateApp() {
 
   return authState === AuthState.SignIn && user ? (
     <div>
-      <div>Hello, {user}</div>
+      <div>Hello, {user.username}</div>
       <AmplifySignOut />
     </div>
   ) : (
